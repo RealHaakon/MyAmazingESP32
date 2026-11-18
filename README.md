@@ -12,51 +12,6 @@ The design follows Robert Feranec's Altium Designer tutorial and adapts it into 
 - Practice a professional design workflow: libraries, schematic, layout, DRC checks, fabrication outputs and assembly.
 - Take a board from an idea to a working, programmed piece of hardware.
 
-## Repository contents
-
-```text
-.
-├── ExampleWithWifi/
-│   └── wifiserver/
-│       └── wifiserver.ino   # ESP32 WiFi web server demo
-└── Pictures/
-    ├── Demo.gif             # Demonstration of the running web server
-    ├── ESP32.jpeg           # Board photo
-    ├── ESP32Front.jpg       # Assembled board, front
-    ├── ESP32Back.jpg        # Assembled board, back
-    └── L1.jpg ... L4.jpg     # Design/layout snapshots
-```
-
-## Demo firmware
-
-`ExampleWithWifi/wifiserver/wifiserver.ino` connects the ESP32 to a WiFi network and serves a small, styled web page for controlling the LED on **GPIO 2**.
-
-### Running it
-
-1. Install the **ESP32 Arduino core** (a recent 3.x version is recommended; the sketch uses `NetworkServer`/`NetworkClient`).
-2. Open `ExampleWithWifi/wifiserver/wifiserver.ino` in the Arduino IDE.
-3. Fill in your network credentials:
-
-   ```cpp
-   const char *ssid = "YOUR_WIFI_SSID";
-   const char *password = "YOUR_WIFI_PASSWORD";
-   ```
-
-4. Select your ESP32 board and port, then upload the sketch.
-5. Open the Serial monitor at **115200 baud** to find the board's IP address.
-6. Open that address in a browser on the same network.
-
-### Web routes
-
-| Route       | Action                  |
-| ----------- | ----------------------- |
-| `/`         | Show the LED dashboard  |
-| `/H`        | Turn the LED on         |
-| `/L`        | Turn the LED off        |
-| `/toggle`   | Toggle the LED state    |
-
-The dashboard shows the current state, GPIO level and IP address, with a button that calls the on/off routes from JavaScript.
-
 ## Hardware status
 
 The PCB was ordered with assembly from JLCPCB. The board is populated and working; the **connector shunts** are still on order due to a long procurement lead time and will be fitted when they arrive.
@@ -73,6 +28,8 @@ The PCB was ordered with assembly from JLCPCB. The board is populated and workin
 
 ### Design and layout
 
+The schematic is available as a [PDF](Pictures/Schematic.pdf).
+
 ![Layout 1](Pictures/L1.jpg)
 
 ![Layout 2](Pictures/L2.jpg)
@@ -84,6 +41,10 @@ The PCB was ordered with assembly from JLCPCB. The board is populated and workin
 ### Demo
 
 ![WiFi LED control demo](Pictures/Demo.gif)
+
+## Acknowledgements
+
+This project would not have been possible without the financing from [Eiklab](https://eiklab.no), a student center for innovation at NMBU. Check them out at [eiklab.no](https://eiklab.no).
 
 ## Reference
 
